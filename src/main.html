@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Shoe design</title>
+		<link type="text/css" rel="stylesheet" href="main.css">
+	</head>
+
+	<body>
+		<div style="text-align: center;">
+		<div>
+		<strong>Sole</strong>
+		<select id= "id_sole" name= "o_sole" >
+				<option value= 0x000000 > Black </option>
+				<option value= 0x222222 > Grey </option>
+				<option value= 0x555555 > White </option>
+				<option value= 0x220000 > Red </option>
+				<option value= 0x002200 > Green</option>
+				<option value= 0x000022> Blue </option>
+				<option value= 0x444400> Yellow </option>
+				<option value= 0x005544> Mint </option>
+				<option value= 0x440044> Pink </option>
+				
+		</select>
+		<strong>Quarter</strong>
+		<select id= "id_quarter" name= "o_quarter" >
+				<option value= 0x000000 > Black </option>
+				<option value= 0x222222 > Grey </option>
+				<option value= 0x555555 > White </option>
+				<option value= 0x220000 > Red </option>
+				<option value= 0x002200 > Green</option>
+				<option value= 0x000022> Blue </option>
+				<option value= 0x444400> Yellow </option>
+				<option value= 0x005544> Mint </option>
+				<option value= 0x440044> Pink </option>
+		</select>
+		<strong>Tongue</strong>
+		<select id= "id_tongue" name= "o_tongue" >
+				<option value= 0x000000 > Black </option>
+				<option value= 0x222222 > Grey </option>
+				<option value= 0x555555 > White </option>
+				<option value= 0x220000 > Red </option>
+				<option value= 0x002200 > Green</option>
+				<option value= 0x000022> Blue </option>
+				<option value= 0x444400> Yellow </option>
+				<option value= 0x005544> Mint </option>
+				<option value= 0x440044> Pink </option>
+		</select>
+		<strong>Toecap</strong>	
+		<select id= "id_toecap" name= "o_toecap" >
+				<option value= 0x000000 > Black </option>
+				<option value= 0x222222 > Grey </option>
+				<option value= 0x555555 > White </option>
+				<option value= 0x220000 > Red </option>
+				<option value= 0x002200 > Green</option>
+				<option value= 0x000022> Blue </option>
+				<option value= 0x444400> Yellow </option>
+				<option value= 0x005544> Mint </option>
+				<option value= 0x440044> Pink </option>
+		</select>
+		<strong>Lace</strong>	
+		<select id= "id_lace" name= "o_lace" >
+				<option value= 0x000000 > Black </option>
+				<option value= 0x222222 > Grey </option>
+				<option value= 0x555555 > White </option>
+				<option value= 0x220000 > Red </option>
+				<option value= 0x002200 > Green</option>
+				<option value= 0x000022> Blue </option>
+				<option value= 0x444400> Yellow </option>
+				<option value= 0x005544> Mint </option>
+				<option value= 0x440044> Pink </option>
+		</select>
+		</div>
+			
+			<script type="module">
+
+			import * as THREE from '../build/three.module.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			import { RGBELoader } from './jsm/loaders/RGBELoader.js';
+			
+			var loader = new GLTFLoader().setPath( 'models/gltf/shoe/' );
+			let container, controls;
+			let camera, scene, renderer;
+			let m_sole, m_quarter,m_tongue,m_toecap,m_lace,m_ring;
+			let op_sole, op_quarter, op_tongue, op_toecap, op_lace,op_ring;
+				
+			const sole_slct = document.getElementById("id_sole");
+			const quarter_slct = document.getElementById("id_quarter");
+			const tongue_slct = document.getElementById("id_tongue");
+			const toecap_slct = document.getElementById("id_toecap");
+			const lace_slct = document.getElementById("id_lace");
+				
+			var c_sole=0x000000;
+			var c_quarter=0x000000;
+			var c_tongue=0x000000;
+			var	c_toecap=0x000000;
+			var	c_lace=0x000000;
+			var c_ring=0xc0c0c0;
+				
+			var ambientLight = new THREE.AmbientLight(0xffffff, 0.8);	
+			var pointLightUP = new THREE.PointLight("#ffffff", 0.7);
+    		var pointLightDOWN = new THREE.PointLight("#ffffff", 0.7);
+			var pointLightRIGHT = new THREE.PointLight("#ffffff", 0.3);
+			var pointLightLEFT = new THREE.PointLight("#ffffff", 0.3);
+			var pointLightBACK = new THREE.PointLight("#ffffff", 0.3);
+			var pointLightFRONT = new THREE.PointLight("#ffffff", 0.3);
+			
+			init();
+			
+			sole_slct.onchange = function()
+			{
+				c_sole = sole_slct.options[sole_slct.selectedIndex].value;
+				
+				
+				new RGBELoader()
+					.setDataType( THREE.UnsignedByteType )
+					.setPath( 'textures/equirectangular/' )
+					.load()
+				loader.load( 'sole.gltf', function ( gltf ) {
+
+						gltf.scene.traverse( function ( child ) {
+
+							if ( child.isMesh ) {
+									m_sole = child;
+									m_sole.material.color.setHex(c_sole);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+							render(); 
+						} );
+			}
+			
+			quarter_slct.onchange = function()
+			{
+				c_quarter = quarter_slct.options[quarter_slct.selectedIndex].value;
+				
+				loader.load( 'quarter.gltf', function ( gltf ) {
+
+						gltf.scene.traverse( function ( child ) {
+
+							if ( child.isMesh ) {
+
+									
+									m_quarter = child;
+									m_quarter.material.color.setHex(c_quarter);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+							render(); 
+						} );
+				
+			}
+			
+			tongue_slct.onchange = function()
+			{
+				c_tongue = tongue_slct.options[tongue_slct.selectedIndex].value;
+				
+				loader.load( 'tongue.gltf', function ( gltf ) {
+
+						gltf.scene.traverse( function ( child ) {
+
+							if ( child.isMesh ) {
+									m_tongue = child;
+									m_tongue.material.color.setHex(c_tongue);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+							render(); 
+						} );
+			}
+			
+			toecap_slct.onchange = function()
+			{
+				c_toecap = toecap_slct.options[toecap_slct.selectedIndex].value;
+				
+				loader.load( 'toecap.gltf', function ( gltf ) {
+
+						gltf.scene.traverse( function ( child ) {
+
+							if ( child.isMesh ) {
+									m_toecap = child;
+									m_toecap.material.color.setHex(c_toecap);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+							render(); 
+						} );
+			}
+			
+			lace_slct.onchange = function()
+			{
+				c_lace = lace_slct.options[lace_slct.selectedIndex].value;
+				
+				loader.load( 'lace.gltf', function ( gltf ) {
+
+						gltf.scene.traverse( function ( child ) {
+
+							if ( child.isMesh ) {
+									m_lace = child;
+									m_lace.material.color.setHex(c_lace);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+							render(); 
+						} );
+				
+			}
+							
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.25, 20 );
+				camera.position.set( 3 , 0 , 4 );
+
+				scene = new THREE.Scene();
+				
+				pointLightUP.position.set( 0, 200, 0 );
+				pointLightDOWN.position.set( 0, -200, 0 );
+				pointLightRIGHT.position.set( 0, 0, 200 );
+				pointLightLEFT.position.set( 0, 0, -200 );
+				pointLightBACK.position.set( -200, 0, 0 );
+				pointLightFRONT.position.set( 200, 0, 0 );
+
+    			scene.add(ambientLight);
+				scene.add(pointLightUP);
+				scene.add(pointLightDOWN);
+				scene.add(pointLightRIGHT);
+				scene.add(pointLightLEFT);
+				scene.add(pointLightBACK);
+				scene.add(pointLightFRONT);
+				
+				
+				new RGBELoader()
+					.setDataType( THREE.UnsignedByteType )
+					.setPath( 'textures/equirectangular/' )
+					.load( 'royal_esplanade_1k.hdr', function ( texture ) {
+
+						var envMap = pmremGenerator.fromEquirectangular( texture ).texture;
+
+						scene.background = envMap;
+						scene.environment = envMap;
+						texture.dispose();
+						pmremGenerator.dispose();
+						render();
+						
+						//sole
+						loader.load( 'sole.gltf', function ( gltf ) {
+
+							gltf.scene.traverse( function ( child ) {
+
+								if ( child.isMesh ) {
+									m_sole =child;
+									m_sole.material.color.setHex(c_sole);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+
+
+							render(); 
+
+						} );
+					
+						//quarter
+						loader.load( 'quarter.gltf', function ( gltf ) {
+
+							gltf.scene.traverse( function ( child ) {
+
+								if ( child.isMesh ) {
+									m_quarter = child ;
+									m_quarter.material.color.setHex(c_quarter);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+
+							render(); 
+
+						} );
+
+						//tongue
+						loader.load( 'tongue.gltf', function ( gltf ) {
+
+							gltf.scene.traverse( function ( child ) {
+
+								if ( child.isMesh ) {
+
+									m_tongue = child ;
+									m_tongue.material.color.setHex(c_tongue);
+									
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+							
+
+							render(); 
+
+						} );
+					
+						//toecap
+						loader.load( 'toecap.gltf', function ( gltf ) {
+
+							gltf.scene.traverse( function ( child ) {
+
+								if ( child.isMesh ) {
+
+									
+									m_toecap = child ;
+									m_toecap.material.color.setHex(c_toecap);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+
+							render(); 
+
+						} );
+					
+						//lace
+						loader.load( 'lace.gltf', function ( gltf ) {
+
+							gltf.scene.traverse( function ( child ) {
+
+								if ( child.isMesh ) {
+									m_lace = child ;
+									m_lace.material.color.setHex(c_lace);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+							render(); 
+
+						} );
+					
+						//ring
+						loader.load( 'ring.gltf', function ( gltf ) {
+
+							gltf.scene.traverse( function ( child ) {
+
+								if ( child.isMesh ) {
+									m_ring = child ;
+									m_ring.material.color.setHex(c_ring);
+								}
+
+							} );
+
+							scene.add( gltf.scene );
+							render(); 
+
+						} );
+					
+					} );
+				
+				
+				
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight*0.9 );
+				renderer.toneMapping = THREE.ACESFilmicToneMapping;
+				renderer.toneMappingExposure = 0.5;
+				renderer.outputEncoding = THREE.sRGBEncoding;
+				container.appendChild( renderer.domElement );
+				
+
+				var pmremGenerator = new THREE.PMREMGenerator( renderer );
+				pmremGenerator.compileEquirectangularShader();
+
+				controls = new OrbitControls( camera, renderer.domElement );
+				controls.addEventListener( 'change', render );
+				
+				controls.minDistance = 3;
+				controls.maxDistance = 10;
+				controls.target.set( 0, 0,  0 );
+				controls.update();
+
+				window.addEventListener( 'resize', onWindowResize, false );
+				
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+
+			}
+
+			function render() {
+				
+				
+				renderer.render( scene, camera );
+			
+			}
+			
+		</script>
+			
+			</div>
+	</body>
+</html>
+

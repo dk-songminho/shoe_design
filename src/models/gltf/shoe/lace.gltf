@@ -1,0 +1,198 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.2.75",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "extras" : {
+                "NWBusyDrawing" : "",
+                "NWLazySource" : "Emission",
+                "NWLazyTarget" : "Principled BSDF",
+                "ats_settings" : {
+                    "num_tiles" : [
+                        8,
+                        5
+                    ],
+                    "threads_error" : 0,
+                    "prev_engine" : "CYCLES",
+                    "prev_device" : "GPU",
+                    "prev_border" : 0,
+                    "prev_threads" : 1,
+                    "prev_choice" : "256",
+                    "prev_res" : [
+                        1920,
+                        1080
+                    ],
+                    "prev_border_res" : [
+                        0,
+                        0,
+                        1,
+                        1
+                    ],
+                    "prev_actual_tile_size" : [
+                        240,
+                        216
+                    ],
+                    "first_run" : 0
+                },
+                "luxcore" : {
+                    "opencl" : {
+                        "devices_hash" : "GeForce GTX 1660",
+                        "devices" : [
+                            {
+                                "name" : "GeForce GTX 1660",
+                                "type" : "OPENCL_GPU"
+                            }
+                        ]
+                    },
+                    "config" : {
+                        "film_opencl_enable" : 1,
+                        "film_opencl_device" : 1,
+                        "filesaver_path" : "/tmp/",
+                        "photongi" : {
+                            "file_path" : "//4_final model_destructive.pgi"
+                        }
+                    }
+                }
+            },
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Laces",
+            "scale" : [
+                0.029406286776065826,
+                0.029406286776065826,
+                0.029406286776065826
+            ],
+            "translation" : [
+                -0.11093030124902725,
+                0.4186587631702423,
+                0.6025238037109375
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0,
+                0,
+                0
+            ],
+            "extras" : {
+                "luxcore" : {}
+            },
+            "name" : "Fabric_laces",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.012555419467389584,
+                    0.015808574855327606,
+                    0.012454883195459843,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.9488635063171387
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Plane.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TANGENT" : 2,
+                        "TEXCOORD_0" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 58554,
+            "max" : [
+                14.845808982849121,
+                12.179610252380371,
+                1.0090351104736328
+            ],
+            "min" : [
+                -9.80842113494873,
+                -3.4562857151031494,
+                -36.41232681274414
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 58554,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 58554,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 58554,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 316416,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 702648,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 702648,
+            "byteOffset" : 702648
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 936864,
+            "byteOffset" : 1405296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 468432,
+            "byteOffset" : 2342160
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 632832,
+            "byteOffset" : 2810592
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 3443424,
+            "uri" : "lace.bin"
+        }
+    ]
+}

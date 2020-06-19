@@ -1,0 +1,198 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.2.75",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "extras" : {
+                "NWBusyDrawing" : "",
+                "NWLazySource" : "Emission",
+                "NWLazyTarget" : "Principled BSDF",
+                "ats_settings" : {
+                    "num_tiles" : [
+                        8,
+                        5
+                    ],
+                    "threads_error" : 0,
+                    "prev_engine" : "CYCLES",
+                    "prev_device" : "GPU",
+                    "prev_border" : 0,
+                    "prev_threads" : 1,
+                    "prev_choice" : "256",
+                    "prev_res" : [
+                        1920,
+                        1080
+                    ],
+                    "prev_border_res" : [
+                        0,
+                        0,
+                        1,
+                        1
+                    ],
+                    "prev_actual_tile_size" : [
+                        240,
+                        216
+                    ],
+                    "first_run" : 0
+                },
+                "luxcore" : {
+                    "opencl" : {
+                        "devices_hash" : "GeForce GTX 1660",
+                        "devices" : [
+                            {
+                                "name" : "GeForce GTX 1660",
+                                "type" : "OPENCL_GPU"
+                            }
+                        ]
+                    },
+                    "config" : {
+                        "film_opencl_enable" : 1,
+                        "film_opencl_device" : 1,
+                        "filesaver_path" : "/tmp/",
+                        "photongi" : {
+                            "file_path" : "//4_final model_destructive.pgi"
+                        }
+                    }
+                }
+            },
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Toe cap",
+            "scale" : [
+                0.6501737833023071,
+                0.660173773765564,
+                0.660173773765564
+            ],
+            "translation" : [
+                -0.03600960224866867,
+                -0.34318310022354126,
+                -0.26165616512298584
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0,
+                0,
+                0
+            ],
+            "extras" : {
+                "luxcore" : {}
+            },
+            "name" : "Rubber",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.6029545068740845
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Plane.000",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TANGENT" : 2,
+                        "TEXCOORD_0" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 1569,
+            "max" : [
+                0.4199255704879761,
+                1.1915028095245361,
+                2.2662558555603027
+            ],
+            "min" : [
+                -0.6141791939735413,
+                0.8286181688308716,
+                1.7666407823562622
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 1569,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 1569,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 1569,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 8352,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 18828,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 18828,
+            "byteOffset" : 18828
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 25104,
+            "byteOffset" : 37656
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12552,
+            "byteOffset" : 62760
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 16704,
+            "byteOffset" : 75312
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 92016,
+            "uri" : "toecap.bin"
+        }
+    ]
+}
